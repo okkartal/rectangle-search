@@ -21,7 +21,7 @@ public class AppDbContext : DbContext
             
             modelBuilder.Entity<Rectangle>().HasData(
             
-                new Rectangle { Id = i, Width = i * 2, Height = i * 2, X = i * 3, Y = i * 4 }
+                new Rectangle { Id = i, Width = i * 10, Height = i * 10, X = 10, Y = 10 }
             );
         }
     }
