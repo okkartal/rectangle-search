@@ -10,29 +10,16 @@ public class RectangleService : IRectangleService
         _context = context;
     }
 
-    public List<Rectangle> FindMatchingRectangles(int[] coordinates)
+    public List<Rectangle> FindMatchingRectangles(int x, int y)
     {
-        var matchingRectangles = new List<Rectangle>();
 
-        for (int i = 0; i < coordinates.Length; i++)
-        {
-            var x = coordinates[0];
-            var y = coordinates[1];
+        if(_context.Rectangles == null || !_context.Rectangles.Any())
+            return new List<Rectangle>();
 
-            if (_context.Rectangles != null)
-            {
-                var rectangles = _context.Rectangles.Where(r =>
-                    x >= r.X && x <= (r.X + r.Width) &&
-                    y >= r.Y && y <= (r.Y + r.Height));
+        return _context.Rectangles.Where(r =>
+            x >= r.X && x <= (r.X + r.Width) &&
+            y >= r.Y && y <= (r.Y + r.Height)).ToList();
 
-                if (rectangles.Any())
-                {
-                    matchingRectangles.AddRange(rectangles);
-                }
-            }
-        }
-
-        return matchingRectangles;
     }
 }
 
