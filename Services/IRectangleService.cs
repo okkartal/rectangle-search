@@ -3,6 +3,6 @@
 namespace RectangleSearch.Services;
 public interface IRectangleService
 {
-    List<Rectangle> FindMatchingRectangles(int[] coordinates);
+    List<Rectangle> FindMatchingRectangles(int x, int y);
 }
 

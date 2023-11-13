@@ -27,7 +27,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapGet("matching-rectangles",
-   async (IRectangleService rectangleService, [FromBody, Required] int[] coordinates) => 
-      Results.Ok(await Task.Run(() => rectangleService.FindMatchingRectangles(coordinates))));
+   async (IRectangleService rectangleService,int x, int y) => 
+      Results.Ok(await Task.Run(() => rectangleService.FindMatchingRectangles(x,y))));
 
 app.Run();
