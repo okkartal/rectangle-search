@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RectangleSearch.Models;
 
 namespace RectangleSearch.Data;
 
@@ -10,7 +9,6 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<Rectangle>? Rectangles { get; set; }
-     
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

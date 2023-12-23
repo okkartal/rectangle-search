@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
-namespace RectangleSearch.Models;
+namespace RectangleSearch.Data;
 public class Rectangle
 {
-    [Key, JsonIgnore]
+    [Key]
     public int Id { get; set; }
     public int X { get; set; }
     public int Y { get; set; }

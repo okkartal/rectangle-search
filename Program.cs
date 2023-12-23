@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RectangleSearch.Data;
 using RectangleSearch.Middlewares;
