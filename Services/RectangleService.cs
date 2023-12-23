@@ -10,15 +10,17 @@ public class RectangleService : IRectangleService
         _context = context;
     }
 
-    public List<Rectangle> FindMatchingRectangles(int x, int y)
+    public IEnumerable<RectangleDto> FindMatchingRectangles(int x, int y)
     {
 
-        if(_context.Rectangles == null || !_context.Rectangles.Any())
-            return new List<Rectangle>();
+        if (_context.Rectangles == null || !_context.Rectangles.Any())
+            return Enumerable.Empty<RectangleDto>();
 
         return _context.Rectangles.Where(r =>
             x >= r.X && x <= (r.X + r.Width) &&
-            y >= r.Y && y <= (r.Y + r.Height)).ToList();
+            y >= r.Y && y <= (r.Y + r.Height))
+            .Select(rect =>
+            new RectangleDto(rect.X, rect.Y, rect.Width, rect.Height));
 
     }
 }
